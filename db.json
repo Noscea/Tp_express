@@ -1,0 +1,16 @@
+{
+  "user": [
+    {
+      "date_inscription": "2023-01-06T11:11:08.337Z",
+      "date_de_naissance": "Non Renseigné",
+      "nationalite": "Non Renseigné",
+      "id": 1
+    },
+    {
+      "date_inscription": "2023-01-06T12:41:09.919Z",
+      "date_de_naissance": "Non Renseigné",
+      "nationalite": "Non Renseigné",
+      "id": 2
+    }
+  ]
+}
