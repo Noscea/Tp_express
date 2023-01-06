@@ -22,6 +22,8 @@ export default class User {
       "nationalite",
     ];
     let countNecessity: number = 0;
+    this.nom ="";
+    this.prenom= "";
     this.date_inscription = new Date().toLocaleString();
     this.date_de_naissance = "Non Renseigné";
     this.nationalite = "Non Renseigné";
