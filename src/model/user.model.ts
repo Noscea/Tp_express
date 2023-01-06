@@ -1,25 +1,55 @@
 export default class User {
   id!: number;
-  [nom: string]:any;
+  [nom: string]: any;
   prenom?: string;
   date_de_naissance?: string;
-  date_inscription!: Date;
+  date_inscription!: string;
   nationalite?: string;
 
-  constructor(data?: any) {
-    if (data) this.create(data);
+  constructor(data: any, update = false) {
+    if (update) {
+      this.update(data);
+    } else {
+      this.create(data);
+    }
   }
 
   create = (obj: any) => {
-    const checkAttribut = ["nom", "prenom", "date_de_naissance", "nationalite"];
-
-    this.date_inscription = new Date();
+    const checkAttribut: string[] = [
+      "nom",
+      "prenom",
+      "date_de_naissance",
+      "nationalite",
+    ];
+    let countNecessity: number = 0;
+    this.date_inscription = new Date().toLocaleString();
     this.date_de_naissance = "Non Renseigné";
     this.nationalite = "Non Renseigné";
 
     for (let key in obj) {
-        // console.log(key);
-        
+      // console.log(key);
+
+      if (checkAttribut.includes(key)) {
+        if (key == "nom" || key == "prenom") countNecessity++;
+        this[key] = obj[key];
+      }
+    }
+    if (countNecessity != 2) throw "Element necessaires manquant";
+  };
+
+  update = (obj: any) => {
+    const checkAttribut: string[] = [
+      "nom",
+      "prenom",
+      "date_de_naissance",
+      "date_inscription",
+      "nationalite",
+    ];
+
+
+    for (let key in obj) {
+      // console.log(key);
+
       if (checkAttribut.includes(key)) {
         this[key] = obj[key];
       }

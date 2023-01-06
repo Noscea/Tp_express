@@ -9,16 +9,16 @@ const controller = new UserController(serivce);
 
 const router = express.Router();
 
-// router.get("/", controller.getAll);
-// router.get("/:id", controller.getById); 
+router.get("/", controller.getAll);
+router.get("/:id", controller.getById); 
 
-// router.delete("/:id", controller.deleteById); 
+router.delete("/:id", controller.delete); 
 
-router.post("/", controller.postElement)
+router.post("/", controller.create)
 
-// router.put("/:id", controller.put)
+router.put("/:id", controller.replace)
 
-// router.patch("/:id", controller.patch)
+router.patch("/:id", controller.patch)
 
 
 export default router;
